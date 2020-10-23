@@ -35,4 +35,13 @@ public class Node implements INode{
     public int hashCode() {
         return Objects.hash(code, renderer);
     }
+
+
+    @Override
+    public String toString() {
+        return "Node{" +
+                "code='" + code + '\'' +
+                ", renderer='" + renderer + '\'' +
+                '}';
+    }
 }

@@ -1,10 +1,11 @@
 package my_structure;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 public class MyStructure implements IMyStructure {
-    private List<INode> nodes;
+    private List<INode> nodes = new ArrayList<>();
 
     public boolean add(INode node) {
         return nodes.add(node);
@@ -33,4 +34,11 @@ public class MyStructure implements IMyStructure {
         return nodes.size();
     }
 
+
+    @Override
+    public String toString() {
+        return "MyStructure{" +
+                "nodes=" + nodes +
+                '}';
+    }
 }
