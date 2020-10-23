@@ -51,5 +51,15 @@ class MyStructureTest {
         Assertions.assertNull(myStructure.findByRenderer("renderer2"));
     }
 
+    @Test
+    public void when_null_is_given_as_parameter_in_method_findByCode_IllegalArgumentException_should_be_thrown() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> myStructure.findByCode(null));
+    }
+
+    @Test
+    public void when_null_is_given_as_parameter_in_method_findByRenderer_IllegalArgumentException_should_be_thrown() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> myStructure.findByRenderer(null));
+    }
+
 
 }

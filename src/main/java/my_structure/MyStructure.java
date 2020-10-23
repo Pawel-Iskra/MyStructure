@@ -8,11 +8,15 @@ public class MyStructure implements IMyStructure {
     private List<INode> nodes = new ArrayList<>();
 
     public boolean add(INode node) {
+        if (node == null) throw new IllegalArgumentException("Node can't be null.");
         return nodes.add(node);
     }
 
     @Override
     public INode findByCode(String code) {
+        if (code == null) {
+            throw new IllegalArgumentException("code can't be null.");
+        }
         Optional<INode> foundNode = nodes.stream()
                 .filter(node -> code.equals(node.getCode()))
                 .findFirst();
@@ -22,6 +26,9 @@ public class MyStructure implements IMyStructure {
 
     @Override
     public INode findByRenderer(String renderer) {
+        if (renderer == null) {
+            throw new IllegalArgumentException("renderer can't be null.");
+        }
         Optional<INode> foundNode = nodes.stream()
                 .filter(node -> renderer.equals(node.getRenderer()))
                 .findFirst();
@@ -33,8 +40,6 @@ public class MyStructure implements IMyStructure {
     public int count() {
         return nodes.size();
     }
-
-
 
 
     @Override
