@@ -1,4 +1,4 @@
-Main
 *.idea
 *.iml
 /target
+Main.java
