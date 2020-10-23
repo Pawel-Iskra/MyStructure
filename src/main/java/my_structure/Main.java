@@ -31,7 +31,6 @@ public class Main {
         System.out.println("compositeNode1.getNodes() = " + compositeNode1.getNodes());
         System.out.println("compositeNode1.getNodes().size() = " + compositeNode1.getNodes().size());
 
-
         myStructure.add(compositeNode1);
         System.out.println("\nmyStructure = " + myStructure);
 

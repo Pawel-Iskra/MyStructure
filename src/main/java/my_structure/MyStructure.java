@@ -35,6 +35,8 @@ public class MyStructure implements IMyStructure {
     }
 
 
+
+
     @Override
     public String toString() {
         return "MyStructure{" +

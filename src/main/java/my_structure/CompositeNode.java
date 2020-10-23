@@ -6,8 +6,7 @@ import java.util.Objects;
 public class CompositeNode extends Node implements ICompositeNode {
     private List<INode> nodes;
 
-    public CompositeNode(String code, String renderer,
-                         List<INode> list) {
+    public CompositeNode(String code, String renderer, List<INode> list) {
         super(code, renderer);
         this.nodes = list;
     }

@@ -12,7 +12,6 @@ public class Node implements INode{
     }
 
 
-
     @Override
     public String getCode() {
         return code;
