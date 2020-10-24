@@ -2,6 +2,8 @@ package my_structure;
 
 import org.junit.jupiter.api.*;
 
+import java.util.Arrays;
+
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class MyStructureTest {
 

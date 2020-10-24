@@ -28,6 +28,7 @@ public class MyStructure implements IMyStructure {
                     }
                 }
             }
+            if (code.equals(iNode.getCode())) return iNode;
         }
         return null;
     }
@@ -49,6 +50,7 @@ public class MyStructure implements IMyStructure {
                     }
                 }
             }
+            if (renderer.equals(iNode.getRenderer())) return iNode;
         }
         return null;
     }
