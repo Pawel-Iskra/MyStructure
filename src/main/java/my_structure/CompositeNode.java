@@ -1,13 +1,19 @@
 package my_structure;
 
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
 
 public class CompositeNode extends Node implements ICompositeNode {
-    private List<INode> nodes;
+    private List<INode> nodes = new LinkedList<>();
 
     public CompositeNode(String code, String renderer, List<INode> list) {
         super(code, renderer);
+        for (INode iNode : list) {
+            if (iNode instanceof CompositeNode) {
+                throw new IllegalArgumentException("node inside composite node can't be composite type");
+            }
+        }
         this.nodes = list;
     }
 
@@ -15,7 +21,6 @@ public class CompositeNode extends Node implements ICompositeNode {
     public List<INode> getNodes() {
         return nodes;
     }
-
 
     @Override
     public boolean equals(Object o) {
@@ -31,10 +36,4 @@ public class CompositeNode extends Node implements ICompositeNode {
         return Objects.hash(super.hashCode(), nodes);
     }
 
-    @Override
-    public String toString() {
-        return "CompositeNode{" +
-                "nodes=" + nodes +
-                '}';
-    }
 }

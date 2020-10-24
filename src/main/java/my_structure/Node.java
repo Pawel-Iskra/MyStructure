@@ -2,7 +2,7 @@ package my_structure;
 
 import java.util.Objects;
 
-public class Node implements INode{
+public class Node implements INode {
     private String code;
     private String renderer;
 
@@ -10,7 +10,6 @@ public class Node implements INode{
         this.code = code;
         this.renderer = renderer;
     }
-
 
     @Override
     public String getCode() {
@@ -35,12 +34,4 @@ public class Node implements INode{
         return Objects.hash(code, renderer);
     }
 
-
-    @Override
-    public String toString() {
-        return "Node{" +
-                "code='" + code + '\'' +
-                ", renderer='" + renderer + '\'' +
-                '}';
-    }
 }

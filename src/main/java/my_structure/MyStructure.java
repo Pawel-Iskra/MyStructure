@@ -1,51 +1,68 @@
 package my_structure;
 
-import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
-import java.util.Optional;
 
 public class MyStructure implements IMyStructure {
-    private List<INode> nodes = new ArrayList<>();
+    private List<INode> nodes = new LinkedList<>();
 
     public boolean add(INode node) {
-        if (node == null) throw new IllegalArgumentException("Node can't be null.");
+        if (node == null) throw new IllegalArgumentException("node can't be null");
         return nodes.add(node);
     }
 
     @Override
     public INode findByCode(String code) {
         if (code == null) {
-            throw new IllegalArgumentException("code can't be null.");
+            throw new IllegalArgumentException("code can't be null");
         }
-        Optional<INode> foundNode = nodes.stream()
-                .filter(node -> code.equals(node.getCode()))
-                .findFirst();
-        if (foundNode.isEmpty()) return null;
-        return foundNode.get();
+        for (INode iNode : nodes) {
+            if (iNode instanceof CompositeNode) {
+                CompositeNode current = (CompositeNode) iNode;
+                if (code.equals(current.getCode())) {
+                    return current;
+                }
+                for (INode node : current.getNodes()) {
+                    if (code.equals(node.getCode())) {
+                        return node;
+                    }
+                }
+            }
+        }
+        return null;
     }
 
     @Override
     public INode findByRenderer(String renderer) {
         if (renderer == null) {
-            throw new IllegalArgumentException("renderer can't be null.");
+            throw new IllegalArgumentException("renderer can't be null");
         }
-        Optional<INode> foundNode = nodes.stream()
-                .filter(node -> renderer.equals(node.getRenderer()))
-                .findFirst();
-        if (foundNode.isEmpty()) return null;
-        return foundNode.get();
+        for (INode iNode : nodes) {
+            if (iNode instanceof CompositeNode) {
+                CompositeNode current = (CompositeNode) iNode;
+                if (renderer.equals(current.getRenderer())) {
+                    return current;
+                }
+                for (INode node : current.getNodes()) {
+                    if (renderer.equals(node.getRenderer())) {
+                        return node;
+                    }
+                }
+            }
+        }
+        return null;
     }
 
     @Override
     public int count() {
-        return nodes.size();
+        int amount = 0;
+        for (INode iNode : nodes) {
+            if (iNode instanceof CompositeNode) {
+                amount = amount + (((CompositeNode) iNode).getNodes().size());
+            }
+            amount++;
+        }
+        return amount;
     }
 
-
-    @Override
-    public String toString() {
-        return "MyStructure{" +
-                "nodes=" + nodes +
-                '}';
-    }
 }
