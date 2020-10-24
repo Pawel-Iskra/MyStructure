@@ -1,0 +1,19 @@
+#####################################################################
+########################### MY STRUCTURE ############################
+#####################################################################
+## Design assumptions of MyStructure block:                        ##
+## -> composite node should have simple nodes only in its list,    ##
+##    if try to use composite node in composite node constructor   ##
+##    IllegalArgumentException is thrown                           ##
+## -> method count() counts composite node as one                  ##
+##    the same as simple node                                      ##
+## -> methods findByCode() and findByRenderer() do not accept      ## 
+##    null as parameter, if null is given as parameter then        ##
+##    IllegalArgumentException is thrown                           ##
+## -> methods findByCode() and findByRenderer() return first found ##
+##    node with wanted atribute - no matter if composite node or   ##
+##    simple node, no matter if there are any more nodes with same ##
+##    attribute                                                    ## 
+#####################################################################
+########################### MY STRUCTURE ############################
+#####################################################################
